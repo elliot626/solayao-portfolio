@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emmanuel C. Solayao | Computer Networking &amp; IT Systems</title>
+  <meta name="description" content="Portfolio of Emmanuel C. Solayao, a student focused on computer networking and IT systems.">
+  <meta name="theme-color" content="#0f1626">
+
+  <!-- Runs before first paint so there is no flash of the wrong theme.
+       1) marks the page as JS-enabled, 2) applies the saved theme, or the visitor's system theme.
+       To make dark the default for first-time visitors instead, change 'light' to 'dark' below. -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') {
+        t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      d.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <!-- Fonts load from Google Fonts. If you are offline, the fallback fonts in style.css are used. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Scroll progress bar -->
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#home">Emmanuel C. Solayao</a>
+
+      <div class="header-end">
+        <nav id="site-nav" class="site-nav" aria-label="Main">
+          <span class="nav-indicator" aria-hidden="true"></span>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Dark / light switch. The label is kept up to date by script.js -->
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3 7 7M17 17l1.7 1.7M18.7 5.3 17 7M7 17l-1.7 1.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M20.5 13.2A8.6 8.6 0 1 1 10.8 3.5a6.8 6.8 0 0 0 9.7 9.7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Dims the page behind the mobile drawer. Tapping it closes the menu. -->
+    <div class="nav-backdrop" aria-hidden="true"></div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <!-- Animated network map. Decorative only. Drawn by script.js -->
+      <canvas class="network" aria-hidden="true"></canvas>
+
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1>
+            <span class="word"><span style="--i:0">Hi,</span></span>
+            <span class="word"><span style="--i:1">I'm</span></span>
+            <span class="word"><span style="--i:2">Emmanuel</span></span>
+            <span class="word"><span style="--i:3">C.</span></span>
+            <span class="word"><span style="--i:4">Solayao.</span></span>
+          </h1>
+
+          <p class="lead hero-fade" style="--d:600ms">
+            I'm a student focused on computer networking and IT systems. I like understanding how devices
+            connect, how a problem gets traced to its source, and what it takes to keep a system running.
+          </p>
+          <p class="hero-sub hero-fade" style="--d:700ms">
+            I also build small programs and web pages with AI tools, then test and fix what they produce.
+          </p>
+          <p class="typed-line hero-fade" style="--d:800ms">
+            Now exploring <span class="typed">computer networking</span><span class="caret" aria-hidden="true"></span>
+          </p>
+          <div class="button-row hero-fade" style="--d:900ms">
+            <a class="btn btn-primary" href="#projects">See my projects</a>
+            <a class="btn btn-ghost" href="#contact">Contact me</a>
+          </div>
+        </div>
+
+        <figure class="hero-photo hero-fade" style="--d:350ms">
+          <div class="tilt">
+            <img src="images/emmanuel-portrait.jpg" width="756" height="1008"
+                 alt="Portrait of Emmanuel wearing glasses and a black hoodie">
+            <span class="chip chip-a" aria-hidden="true">Networking</span>
+            <span class="chip chip-b" aria-hidden="true">IT systems</span>
+            <span class="chip chip-c" aria-hidden="true">Vibe coding</span>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Scrolling keyword band. Decorative, repeats the skills below. -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <ul>
+          <li>Computer networking</li>
+          <li>IT systems</li>
+          <li>Troubleshooting</li>
+          <li>Team communication</li>
+          <li>Practical programming</li>
+          <li>Vibe coding</li>
+        </ul>
+        <ul>
+          <li>Computer networking</li>
+          <li>IT systems</li>
+          <li>Troubleshooting</li>
+          <li>Team communication</li>
+          <li>Practical programming</li>
+          <li>Vibe coding</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="wrap about-grid">
+        <div class="about-copy" data-stagger>
+          <h2 data-split>About me</h2>
+          <p>
+            My coursework centers on computer networking and IT systems. I'm most comfortable when I can
+            follow a problem step by step: what is connected, what is set up, and where it breaks.
+          </p>
+          <p>
+            I work well with other people. I try to explain technical ideas in plain words, ask questions
+            early, and keep group tasks moving.
+          </p>
+          <p>
+            When I need code, I use AI tools to get a first version, which is often called
+            &ldquo;vibe coding.&rdquo; Then I read it, run it, and fix it until it does what I need.
+            This portfolio was made that way.
+          </p>
+        </div>
+
+        <div class="about-photos reveal" style="--d:150ms">
+          <img src="images/emmanuel-night.jpg" width="900" height="1200" loading="lazy" data-parallax="0.05"
+               alt="Emmanuel in a blue shirt, sitting on the ground at night and looking to one side">
+          <img src="images/emmanuel-street.jpg" width="530" height="900" loading="lazy" data-parallax="-0.05"
+               alt="Emmanuel standing on a city sidewalk at night with a backpack">
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section section-alt">
+      <div class="wrap">
+        <h2 data-split>Skills</h2>
+        <p class="section-intro reveal" style="--d:80ms">Three areas I rely on most, described the way I actually use them.</p>
+
+        <div class="skills-grid" data-stagger>
+          <article class="skill spot">
+            <svg class="skill-icon icon-net" viewBox="0 0 48 48" width="44" height="44" aria-hidden="true" focusable="false">
+              <path d="M21.6 14.2 11.4 31.8M26.4 14.2l10.2 17.6M14 36h20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="24" cy="10" r="5" fill="none" stroke="currentColor" stroke-width="2.4"/>
+              <circle cx="9" cy="36" r="5" fill="none" stroke="currentColor" stroke-width="2.4"/>
+              <circle cx="39" cy="36" r="5" fill="none" stroke="currentColor" stroke-width="2.4"/>
+            </svg>
+            <h3>Computer networking</h3>
+            <p>Learning how computers and devices connect and communicate, and how to find where a connection fails.</p>
+            <ul>
+              <li>How devices connect and communicate</li>
+              <li>Tracing a problem step by step</li>
+              <li>Supporting everyday IT systems</li>
+            </ul>
+          </article>
+
+          <article class="skill spot">
+            <svg class="skill-icon icon-chat" viewBox="0 0 48 48" width="44" height="44" aria-hidden="true" focusable="false">
+              <path d="M8 9h32a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V13a4 4 0 0 1 4-4z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+              <circle class="dot" cx="16" cy="22" r="2" fill="currentColor"/>
+              <circle class="dot" cx="24" cy="22" r="2" fill="currentColor"/>
+              <circle class="dot" cx="32" cy="22" r="2" fill="currentColor"/>
+            </svg>
+            <h3>Team communication</h3>
+            <p>Clear, honest communication that helps a group finish its work together.</p>
+            <ul>
+              <li>Explaining technical ideas in plain words</li>
+              <li>Asking questions early</li>
+              <li>Keeping group tasks on track</li>
+            </ul>
+          </article>
+
+          <article class="skill spot">
+            <svg class="skill-icon icon-code" viewBox="0 0 48 48" width="44" height="44" aria-hidden="true" focusable="false">
+              <path class="br-l" d="M18 14 8 24l10 10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path class="br-r" d="M30 14l10 10-10 10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M27 10 21 38" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            </svg>
+            <h3>Practical programming with AI tools</h3>
+            <p>Using AI to build working programs and pages, while staying responsible for checking the result.</p>
+            <ul>
+              <li>Describing what I need to an AI tool</li>
+              <li>Reading and testing the code it gives me</li>
+              <li>Fixing and improving until it works</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Tools used to build this site (taken from the footer and README) -->
+        <div class="stack reveal">
+          <p class="stack-label">This site is built with</p>
+          <ul class="stack-list">
+            <li class="tag" style="--c:#e8643c">HTML</li>
+            <li class="tag" style="--c:#4a8dff">CSS</li>
+            <li class="tag" style="--c:#f2c744">JavaScript</li>
+            <li class="tag" style="--c:#d9794f">Claude (AI assistance)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="wrap">
+        <h2 data-split>Projects</h2>
+        <p class="section-intro reveal" style="--d:80ms">Coursework results and my student writing.</p>
+
+        <!-- Filter: script.js reads each card's data-category. Add a new card + a new button to extend. -->
+        <div class="filters reveal" role="group" aria-label="Filter projects">
+          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">All <span class="count"></span></button>
+          <button class="filter" type="button" data-filter="coursework" aria-pressed="false">Coursework <span class="count"></span></button>
+          <button class="filter" type="button" data-filter="writing" aria-pressed="false">Writing <span class="count"></span></button>
+        </div>
+        <p class="visually-hidden" role="status" aria-live="polite" id="filter-status"></p>
+
+        <div class="project-grid" data-stagger>
+          <article class="quiz spot" data-category="coursework" data-confetti>
+            <p class="kicker">Coursework quiz</p>
+            <div class="quiz-head">
+              <h4>FE - Semifinal Quiz 1</h4>
+              <span class="badge">Perfect score</span>
+            </div>
+            <p class="score">
+              <span class="score-main" data-count="20" data-total="20">20 / 20</span>
+              <span class="score-pct" data-count="100" data-suffix="%">100%</span>
+            </p>
+            <div class="meter" style="--pct: 100%" role="img" aria-label="20 out of 20, 100 percent"></div>
+          </article>
+
+          <article class="quiz spot" data-category="coursework">
+            <p class="kicker">Coursework quiz</p>
+            <div class="quiz-head">
+              <h4>FE - Semifinal Quiz 2</h4>
+            </div>
+            <p class="score">
+              <span class="score-main" data-count="26" data-total="30">26 / 30</span>
+              <span class="score-pct" data-count="87" data-suffix="%">87%</span>
+            </p>
+            <div class="meter" style="--pct: 86.67%" role="img" aria-label="26 out of 30, 87 percent"></div>
+          </article>
+
+          <figure class="score-record" data-category="coursework">
+            <img src="images/score-record.png" width="594" height="157" loading="lazy"
+                 alt="Score record listing FE - Semifinal Quiz 1 at 20 out of 20 and FE - Semifinal Quiz 2 at 26 out of 30">
+            <figcaption>My score record for both quizzes.</figcaption>
+          </figure>
+
+          <article class="diaries spot" data-category="writing">
+            <div>
+              <p class="kicker">Writing</p>
+              <h4>Student Work &amp; Diaries</h4>
+              <p>A collection of my student work and diary entries, published on WordPress.</p>
+            </div>
+            <a class="btn btn-primary" href="https://studentdiaries0.wordpress.com/" target="_blank" rel="noopener noreferrer">
+              Visit Student Work &amp; Diaries
+              <span class="visually-hidden">(opens in a new tab)</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section-alt">
+      <div class="wrap contact-wrap">
+        <h2 data-split>Contact</h2>
+        <p class="section-intro reveal" style="--d:80ms">
+          Email is the quickest way to reach me. You can also message me on Facebook.
+        </p>
+        <div class="button-row reveal" style="--d:160ms">
+          <a class="btn btn-primary" href="mailto:solayaoemmanuel@gmail.com">Email me</a>
+          <button class="btn btn-ghost btn-copy" type="button" data-copy="solayaoemmanuel@gmail.com">
+            <svg class="icon-copy" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+              <rect x="9" y="9" width="11" height="11" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M5.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <svg class="icon-check" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+              <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="btn-label">Copy email</span>
+          </button>
+          <a class="btn btn-ghost" href="https://www.facebook.com/emmanuel.solayao" target="_blank" rel="noopener noreferrer">
+            Facebook
+            <span class="visually-hidden">(opens in a new tab)</span>
+          </a>
+        </div>
+        <p class="contact-address reveal" style="--d:240ms">solayaoemmanuel@gmail.com</p>
+        <p class="visually-hidden" role="status" aria-live="polite" id="copy-status"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>&copy; <span id="year">2026</span> Emmanuel C. Solayao</p>
+      <p>Built with plain HTML, CSS, and JavaScript, with help from AI tools.</p>
+    </div>
+  </footer>
+
+  <a class="to-top" href="#home" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+      <path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+
+  <script src="script.js"></script>
+
+  
+</body>
+</html>
+
